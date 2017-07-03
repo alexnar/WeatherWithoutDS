@@ -1,7 +1,8 @@
 package edu.weather.api.dto;
 
 /**
- * Weather Data Transfer Object
+ * Weather Data Transfer Object.
+ * Implements builder pattern.
  */
 public class Weather {
     private double latitude;
@@ -25,11 +26,6 @@ public class Weather {
         return weatherDescription;
     }
 
-    /**
-     * Copy constructor
-     *
-     * @param weather Weather object to copy
-     */
     private Weather(WeatherBuilder weather) {
         this.latitude = weather.latitude;
         this.longitude = weather.longitude;
@@ -37,7 +33,10 @@ public class Weather {
         this.weatherDescription = weather.weatherDescription;
     }
 
-
+    /**
+     * WeatherBuilder class for implementing
+     * Builder pattern.
+     */
     public static class WeatherBuilder {
         private double latitude;
         private double longitude;
