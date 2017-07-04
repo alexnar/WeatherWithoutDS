@@ -9,6 +9,11 @@ import edu.weather.api.dto.Weather;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * JSON parser class.
+ * Provides methods for helping to
+ * parse Weather JSON
+ */
 public class WeatherJsonParser {
     private static final String COORDINATES_JSON_KEY = "coord";
     private static final String LONGITUDE_JSON_KEY = "lon";
@@ -20,6 +25,12 @@ public class WeatherJsonParser {
     private static final String CITY_JSON_KEY = "city";
     private static final String DAY_WEATHER_JSON_KEY = "day";
 
+    /**
+     * Return weather now from JSON API.
+     *
+     * @param weatherJson - json String, received from API
+     * @return - List of Weather DTO
+     */
     public static Weather getWeatherNowFromJson(StringBuilder weatherJson) {
         String jsonString = weatherJson.toString();
         JsonParser jsonParser = new JsonParser();
@@ -43,6 +54,12 @@ public class WeatherJsonParser {
         return weather;
     }
 
+    /**
+     * Return weather forecast from JSON API.
+     *
+     * @param weatherJson - json String, received from API
+     * @return - List of Weather DTO
+     */
     public static List<Weather> getWeatherForecastFromJson(StringBuilder weatherJson) {
         String jsonString = weatherJson.toString();
         JsonParser jsonParser = new JsonParser();
@@ -63,6 +80,12 @@ public class WeatherJsonParser {
         return weatherForecastList;
     }
 
+    /**
+     * Helper method to parse single weather entry
+     * in forecast.
+     *
+     * @return Weather DTO (parsed entry)
+     */
     private static Weather getSingleWeatherFromForecast(JsonElement weatherJsonElement, double longitude, double latitude) {
         JsonObject weatherJsonObject = weatherJsonElement.getAsJsonObject();
         JsonObject temperatureJsonObject = weatherJsonObject.getAsJsonObject(TEMPERATURE_JSON_KEY);

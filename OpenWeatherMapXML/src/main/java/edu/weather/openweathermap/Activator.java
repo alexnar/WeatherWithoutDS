@@ -8,15 +8,11 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
 import java.util.Hashtable;
-import java.util.List;
 
 public class Activator implements BundleActivator {
     public void start(BundleContext context) throws Exception {
-        System.out.println("TEST");
         Hashtable<String, Object> properties = generateProperties();
         context.registerService(WeatherApiService.class.getName(), new OpenWeatherMapXml(), properties);
-        List<Weather> weatherList = new OpenWeatherMapXml().getWeatherForecast();
-        weatherList.stream().forEach((weather) -> System.out.println(weather));
     }
 
     public void stop(BundleContext context) throws Exception {
