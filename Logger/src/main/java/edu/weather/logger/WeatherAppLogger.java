@@ -3,6 +3,9 @@ package edu.weather.logger;
 import java.io.IOException;
 import java.util.logging.*;
 
+/**
+ * Weather application global logger
+ */
 public class WeatherAppLogger {
     private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private static final String LOGGER_SETUP_ERROR_MESSAGE = "Logger setup error!";

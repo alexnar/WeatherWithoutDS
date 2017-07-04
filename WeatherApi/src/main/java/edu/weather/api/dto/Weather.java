@@ -70,11 +70,10 @@ public class Weather {
 
     @Override
     public String toString() {
-        return "Weather{" +
-                "latitude=" + latitude +
-                ", longitude=" + longitude +
-                ", temperature=" + temperature +
-                ", weatherDescription='" + weatherDescription + '\'' +
-                '}';
+        return "Weather\n" +
+                "\tlatitude: " + latitude +
+                "\tlongitude: " + longitude +
+                "\ttemperature: " + temperature +
+                "\tweatherDescription: " + weatherDescription;
     }
 }

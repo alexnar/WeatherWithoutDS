@@ -48,6 +48,16 @@
             <artifactId>WeatherApi</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>WeatherWithoutDS</groupId>
+            <artifactId>FileWriter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>WeatherWithoutDS</groupId>
+            <artifactId>Logger</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 

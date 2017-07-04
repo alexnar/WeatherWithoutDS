@@ -30,6 +30,7 @@ public class DataGetterServiceImpl implements DataGetterService {
     private static final String READING_PAGE_PROBLEM_MESSAGE = "Problems while reading page html";
     private static final String GET_DATA_ERROR = "Error getting page html";
 
+    @Override
     public StringBuilder getDataFromUrl(String url) throws DataHttpGetException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(url);

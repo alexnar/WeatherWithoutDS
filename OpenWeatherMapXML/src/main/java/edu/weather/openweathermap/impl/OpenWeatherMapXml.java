@@ -24,7 +24,7 @@ public class OpenWeatherMapXml implements WeatherApiService {
 
     private final DataGetterService dataGetterService;
 
-    private Logger LOGGER = WeatherAppLogger.getLogger();
+    private static final Logger LOGGER = WeatherAppLogger.getLogger();
     private static final String GET_DATA_ERROR = "While getting data, error occurred. " +
             "Check your connection and url you specified";
 
