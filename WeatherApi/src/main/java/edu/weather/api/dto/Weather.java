@@ -67,4 +67,14 @@ public class Weather {
             return new Weather(this);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Weather{" +
+                "latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", temperature=" + temperature +
+                ", weatherDescription='" + weatherDescription + '\'' +
+                '}';
+    }
 }

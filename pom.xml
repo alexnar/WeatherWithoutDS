@@ -15,6 +15,7 @@
         <module>Application</module>
         <module>OpenWeatherMapJSON</module>
         <module>OpenWeatherMapXML</module>
+        <module>Logger</module>
     </modules>
 
     <properties>

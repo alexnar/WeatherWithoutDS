@@ -3,6 +3,8 @@ package edu.weather.api.service;
 
 import edu.weather.api.dto.Weather;
 
+import java.util.List;
+
 /**
  * WeatherApiService interface, provides methods
  * for working with weather API.
@@ -16,5 +18,5 @@ public interface WeatherApiService {
     /**
      * Get weather forecast
      */
-    Weather getWeatherForecast();
+    List<Weather> getWeatherForecast();
 }
