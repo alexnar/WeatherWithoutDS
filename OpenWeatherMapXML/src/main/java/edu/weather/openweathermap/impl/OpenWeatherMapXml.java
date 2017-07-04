@@ -5,7 +5,7 @@ import edu.weather.api.service.WeatherApiService;
 import edu.weather.datagetter.exception.DataHttpGetException;
 import edu.weather.datagetter.service.DataGetterService;
 import edu.weather.logger.WeatherAppLogger;
-import edu.weather.openweathermap.parser.WeatherJsonParser;
+import edu.weather.openweathermap.parser.WeatherXmlParser;
 import edu.weather.openweathermap.url.ApiUrl;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
@@ -20,16 +20,16 @@ import java.util.logging.Logger;
  * Implementation of WeatherApiService, for
  * working with OpenWeatherMap in JSON format.
  */
-public class OpenWeatherMapJson implements WeatherApiService {
+public class OpenWeatherMapXml implements WeatherApiService {
 
     private final DataGetterService dataGetterService;
 
-    private static final Logger LOGGER = WeatherAppLogger.getLogger();
+    private Logger LOGGER = WeatherAppLogger.getLogger();
     private static final String GET_DATA_ERROR = "While getting data, error occurred. " +
             "Check your connection and url you specified";
 
 
-    public OpenWeatherMapJson() {
+    public OpenWeatherMapXml() {
         BundleContext bundleContext = FrameworkUtil.getBundle(DataGetterService.class).getBundleContext();
         ServiceReference serviceReference = bundleContext.getServiceReference(DataGetterService.class);
         dataGetterService = (DataGetterService) bundleContext.getService(serviceReference);
@@ -48,7 +48,7 @@ public class OpenWeatherMapJson implements WeatherApiService {
         if (weatherData.length() == 0) {
             return new Weather.WeatherBuilder().build();
         }
-        Weather weather = WeatherJsonParser.getWeatherNowFromJson(weatherData);
+        Weather weather = WeatherXmlParser.getWeatherNowFromXml(weatherData);
         return weather;
     }
 
@@ -65,7 +65,7 @@ public class OpenWeatherMapJson implements WeatherApiService {
         if (weatherData.length() == 0) {
             return new ArrayList<>();
         }
-        List<Weather> weatherForecastList = WeatherJsonParser.getWeatherForecastFromJson(weatherData);
+        List<Weather> weatherForecastList = WeatherXmlParser.getWeatherForecastFromXml(weatherData);
         return weatherForecastList;
     }
 

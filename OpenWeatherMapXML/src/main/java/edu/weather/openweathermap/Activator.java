@@ -1,24 +1,24 @@
 package edu.weather.openweathermap;
 
+import edu.weather.api.dto.Weather;
 import edu.weather.api.service.WeatherApiService;
-import edu.weather.openweathermap.impl.OpenWeatherMapJson;
+import edu.weather.openweathermap.impl.OpenWeatherMapXml;
 import edu.weather.openweathermap.url.ApiUrl;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
 import java.util.Hashtable;
+import java.util.List;
 
-/**
- * OpenWeatherMapJson Activator.
- */
 public class Activator implements BundleActivator {
-    @Override
     public void start(BundleContext context) throws Exception {
+        System.out.println("TEST");
         Hashtable<String, Object> properties = generateProperties();
-        context.registerService(WeatherApiService.class.getName(), new OpenWeatherMapJson(), properties);
+        context.registerService(WeatherApiService.class.getName(), new OpenWeatherMapXml(), properties);
+        List<Weather> weatherList = new OpenWeatherMapXml().getWeatherForecast();
+        weatherList.stream().forEach((weather) -> System.out.println(weather));
     }
 
-    @Override
     public void stop(BundleContext context) throws Exception {
 
     }
